@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="悲观锁与乐观锁, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="Nginx负载均衡策略, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>悲观锁与乐观锁 | 云扑面</title>
+    <title>Nginx负载均衡策略 | 云扑面</title>
     <link rel="icon" type="image/png" href="/yunpumian/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/yunpumian/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">悲观锁与乐观锁</h1>
+                    <h1 class="description center-align post-title">Nginx负载均衡策略</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-03
+                    2021-08-18
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    508
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    2 分
                 </div>
                 
 
@@ -492,17 +492,29 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h1><p>悲观锁是在操作数据时，认为此操作会出现数据冲突，所以在进行每次操作时都要通过获取锁才能进行 对相同数据的操作，所以悲观锁需要耗费较多的时间。另悲观锁是由数据库自己实现了的，使用的时候，直接调用数据库的相关语句即可。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getRedPacket&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;string&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">resultType</span>=<span class="string">&quot;com.pojo.RedPacket&quot;</span>&gt;</span></span><br><span class="line">select id, user_id as userId, amount, send_date as</span><br><span class="line">sendDate, total,stock, version, remaining_amount as remainingAmount from</span><br><span class="line">red_packet</span><br><span class="line">where id = #&#123;id&#125; for update</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+                <h2 id="1、Nginx的负载均衡"><a href="#1、Nginx的负载均衡" class="headerlink" title="1、Nginx的负载均衡"></a>1、Nginx的负载均衡</h2><p>Nginx提供的负载均衡策略有2种：</p>
+<p>内置策略和扩展策略。</p>
+<p>内置策略为轮询，加权轮询，Ip hash。</p>
+<p>扩展策略，参照所有的负载均衡算法实现。</p>
+<h6 id="Ip-hash算法：对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。"><a href="#Ip-hash算法：对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。" class="headerlink" title="Ip hash算法：对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。"></a>Ip hash算法：对客户端请求的ip进行hash操作，然后根据hash结果将同一个客户端ip的请求分发给同一台服务器进行处理，可以解决session不共享的问题。</h6><h2 id="2、常见配置情形"><a href="#2、常见配置情形" class="headerlink" title="2、常见配置情形"></a>2、常见配置情形</h2><p>1、热备：如果你有2台服务器，当一台服务器发生事故时，才启用第二台服务器给提供服务。服务器处理请求的顺序：AAAAAA突然A挂啦，BBBBBBBBBBBBBB…..</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:7878; </span><br><span class="line">    server 192.168.10.121:3333 backup;  #热备     </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>悲观锁是一种利用数据库内部机制提供的锁的方法，也就是对更新的数据加锁，这样在并发期间一旦有 一个事务持有了数据库记录的锁，其他的线程将不能再对数据进行更新. 在 SQL 中加入的 for update 语句，意味着将持有对数据库记录的行更新锁（因为这里使用主键查询， 所以只会对行加锁。如果使用的是非主键查询，要考虑是否对全表加锁的问题，加锁后可能引发其他查询的阻塞〉，那就意味着在高并发的场景下 ， 当一条事务持有了这个更新锁才能往下操作，其他的线程 如果要更新这条记录，都需要等待，这样就不会出现超发现象引发的数据一致性问题了。</p>
-<p>对于悲观锁来说，当一条线程抢占了资源后，其他的线程将得不到资源，那么这个时， CPU 就会将这些 得不到资源的线程挂起，挂起的线程也会消耗 CPU 的资源尤其是在高并发的请求中。只能有一个事务占据资源，其他事务被挂起等待持有资源的事务提交并释放资源。当此时就进入了线程 2 ， 线程 3……线程n，开始抢夺资源的步骤了，这里假设线程 3 抢到资源。一旦线程1 提交了事务，那么锁就会被释放，这个时候被挂起的线程就会开始竞争红包资源，那么竞争 到的线程就会被 CPU 恢复到运行状态，继续运行。 于是频繁挂起，等待持有锁线程释放资源， 一旦释放资源后，就开始抢夺，恢复线程，直至所有红包资 源抢完。 在高并发的过程中，使用悲观锁就会造成大量的线程被挂起和恢复，这将十分消耗资源，这就是为什么 使用悲观锁性能不佳的原因。 有些时候，我们也会把悲观锁称为独占锁，毕竟只有一个线程可以独占这个资源，或者称为阻塞锁，因 为它会造成其他线程的阻塞。无论如何它都会造成并发能力的下降，从而导致 CPU频繁切换线程上下 文，造成性能低下。 为了克服这个问题，提高并发的能力，避免大量线程因为阻塞导致 CPU 进行大量的上下文切换，目前比 较普遍的是乐观锁机制。</p>
-<p>要使用悲观锁，必须关闭 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/359c3fe50c7f">MySQL</a> 数据库的自动提交属性<code>set autocommit=0</code>。因为 MySQL 默认使用 autocommit 模式，也就是说，当执行一个更新操作后，MySQL 会立刻将结果进行提交。</p>
-<h1 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h1><p>乐观锁是相对悲观锁而言的，乐观锁假设数据一般情况不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果冲突，则返回给用户异常信息，让用户决定如何去做。乐观锁适用于读多写少的场景，这样可以提高程序的吞吐量。</p>
-<p>乐观锁采取了更加宽松的加锁机制。也是为了避免数据库幻读、业务处理时间过长等原因引起数据处理错误的一种机制，但乐观锁不会刻意使用数据库本身的锁机制，而是依据数据本身来保证数据的正确性。乐观锁的实现：</p>
-<h2 id="版本号控制"><a href="#版本号控制" class="headerlink" title="版本号控制"></a>版本号控制</h2><p>一般是在数据表中加上一个数据版本号 version 字段，表示数据被修改的次数。当数据被修改时，version 值会 +1。当线程 A 要更新数据时，在读取数据的同时也会读取 version 值，在提交更新时，若刚才读取到的 version 值与当前数据库中的 version 值相等时才更新，否则重试更新操作，直到更新成功。</p>
-<p>乐观锁每次在执行数据修改操作时，都会带上一个版本号，一旦版本号和数据的版本号一致就可以执行修改操作并对版本号执行 +1 操作，否则就执行失败。因为每次操作的版本号都会随之增加。除了 version 以外，还可以使用时间戳，因为时间戳天然具有顺序递增性。</p>
+<p>2、轮询：nginx默认就是轮询其权重都默认为1，服务器处理请求的顺序：ABABABABAB….</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:7878;</span><br><span class="line">    server 192.168.10.121:3333;       </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<p>3、加权轮询：跟据配置的权重的大小而分发给不同服务器不同数量的请求。如果不设置，则默认为1。下面服务器的请求顺序为：ABBABBABBABBABB….</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:7878 weight=1;</span><br><span class="line">    server 192.168.10.121:3333 weight=2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>4、ip_hash: Nginx会让相同的客户端Ip请求相同的服务器。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:7878; </span><br><span class="line">    server 192.168.10.121:3333;</span><br><span class="line">    ip_hash;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3、Nginx负载均衡配置的几个状态参数"><a href="#3、Nginx负载均衡配置的几个状态参数" class="headerlink" title="3、Nginx负载均衡配置的几个状态参数"></a>3、Nginx负载均衡配置的几个状态参数</h2><ul>
+<li>down，表示当前的server暂时不参与负载均衡。</li>
+<li>backup，预留的备份机器。当其他所有的非backup机器出现故障或者忙的时候，才会请求backup机器，因此这台机器的压力最轻。</li>
+<li>max_fails，允许请求失败的次数，默认为1。当超过最大次数时，返回proxy_next_upstream 模块定义的错误。</li>
+<li>fail_timeout，在经历了max_fails次失败后，暂停服务的时间。max_fails可以和fail_timeout一起使用。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">upstream mysvr &#123; </span><br><span class="line">    server 127.0.0.1:7878 weight=2 max_fails=2 fail_timeout=2;</span><br><span class="line">    server 192.168.10.121:3333 weight=1 max_fails=2 fail_timeout=1;    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -528,7 +540,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/06/03/%E6%82%B2%E8%A7%82%E9%94%81%E4%B8%8E%E4%B9%90%E8%A7%82%E9%94%81/">https://yunpumian.github.io/yunpumian/yunpumian/2021/06/03/%E6%82%B2%E8%A7%82%E9%94%81%E4%B8%8E%E4%B9%90%E8%A7%82%E9%94%81/</a>
+                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/18/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/18/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -733,54 +745,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yunpumian/2021/06/05/MySQL%E7%AC%94%E8%AE%B02/">
+                <a href="/yunpumian/2021/08/18/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/12.jpg" class="responsive-img" alt="MYSQL笔记2">
+                        <img src="/yunpumian/medias/featureimages/23.jpg" class="responsive-img" alt="Nginx负载均衡策略">
                         
-                        <span class="card-title">MYSQL笔记2</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-05
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            云扑面
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/yunpumian/2021/06/03/JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%EF%BC%9A/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/yunpumian/medias/featureimages/1.jpg" class="responsive-img" alt="JMeter压力测试">
-                        
-                        <span class="card-title">JMeter压力测试</span>
+                        <span class="card-title">Nginx负载均衡策略</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -791,7 +767,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            云扑面
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/yunpumian/2021/08/18/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/yunpumian/medias/featureimages/23.jpg" class="responsive-img" alt="Nginx反向代理">
+                        
+                        <span class="card-title">Nginx反向代理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
                             </span>
                         <span class="publish-author">
                             

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="悲观锁与乐观锁, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="Nginx反向代理, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>悲观锁与乐观锁 | 云扑面</title>
+    <title>Nginx反向代理 | 云扑面</title>
     <link rel="icon" type="image/png" href="/yunpumian/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/yunpumian/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/6.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">悲观锁与乐观锁</h1>
+                    <h1 class="description center-align post-title">Nginx反向代理</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-03
+                    2021-08-18
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.3k
+                    1.8k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    4 分
+                    6 分
                 </div>
                 
 
@@ -492,17 +492,43 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h1><p>悲观锁是在操作数据时，认为此操作会出现数据冲突，所以在进行每次操作时都要通过获取锁才能进行 对相同数据的操作，所以悲观锁需要耗费较多的时间。另悲观锁是由数据库自己实现了的，使用的时候，直接调用数据库的相关语句即可。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;getRedPacket&quot;</span> <span class="attr">parameterType</span>=<span class="string">&quot;string&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">resultType</span>=<span class="string">&quot;com.pojo.RedPacket&quot;</span>&gt;</span></span><br><span class="line">select id, user_id as userId, amount, send_date as</span><br><span class="line">sendDate, total,stock, version, remaining_amount as remainingAmount from</span><br><span class="line">red_packet</span><br><span class="line">where id = #&#123;id&#125; for update</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+                <h2 id="1、什么是代理"><a href="#1、什么是代理" class="headerlink" title="1、什么是代理"></a>1、什么是代理</h2><p>在Java设计模式中，代理模式是这样定义的：给某个对象提供一个代理对象，并由代理对象控制原对象的引用。</p>
+<p>　　可能大家不太明白这句话，在举一个现实生活中的例子：比如我们要买一间二手房，虽然我们可以自己去找房源，但是这太花费时间精力了，而且房屋质量检测以及房屋过户等一系列手续也都得我们去办，再说现在这个社会，等我们找到房源，说不定房子都已经涨价了，那么怎么办呢？最简单快捷的方法就是找二手房中介公司（为什么？别人那里房源多啊），于是我们就委托中介公司来给我找合适的房子，以及后续的质量检测过户等操作，我们只需要选好自己想要的房子，然后交钱就行了。</p>
+<p>　　代理简单来说，就是如果我们想做什么，但又不想直接去做，那么这时候就找另外一个人帮我们去做。那么这个例子里面的中介公司就是给我们做代理服务的，我们委托中介公司帮我们找房子。</p>
+<h2 id="2、正向代理"><a href="#2、正向代理" class="headerlink" title="2、正向代理"></a>2、正向代理</h2><p>  大家都知道，现在国内是访问不了 Google的，那么怎么才能访问 Google呢？我们又想，美国人不是能访问 Google吗（这不废话，Google就是美国的），如果我们电脑的对外公网 IP 地址能变成美国的 IP 地址，那不就可以访问 Google了。你很聪明，VPN 就是这样产生的。我们在访问 Google 时，先连上 VPN 服务器将我们的 IP 地址变成美国的 IP 地址，然后就可以顺利的访问了。</p>
+<p>　　这里的 VPN 就是做正向代理的。正向代理服务器位于客户端和服务器之间，为了向服务器获取数据，客户端要向代理服务器发送一个请求，并指定目标服务器，代理服务器将目标服务器返回的数据转交给客户端。这里客户端是要进行一些正向代理的设置的。</p>
+<h2 id="3、反向代理"><a href="#3、反向代理" class="headerlink" title="3、反向代理"></a>3、反向代理</h2><p>反向代理和正向代理的区别就是：<strong>正向代理代理客户端，反向代理代理服务器。</strong></p>
+<p>反向代理，其实客户端对代理是无感知的，因为客户端不需要任何配置就可以访问，我们只需要将请求发送到反向代理服务器，由反向代理服务器去选择目标服务器获取数据后，在返回给客户端，此时反向代理服务器和目标服务器对外就是一个服务器，暴露的是代理服务器地址，隐藏了真实服务器IP地址。</p>
+<p>理解这两种代理的关键在于代理服务器所代理的对象是什么，正向代理代理的是客户端，我们需要在客户端进行一些代理的设置。而反向代理代理的是服务器，作为客户端的我们是无法感知到服务器的真实存在的。</p>
+<p>总结起来还是一句话：<strong>正向代理代理客户端，反向代理代理服务器。</strong></p>
+<h2 id="4、使用Nginx反向代理"><a href="#4、使用Nginx反向代理" class="headerlink" title="4、使用Nginx反向代理"></a>4、使用Nginx反向代理</h2><h6 id="1、配置监听地址"><a href="#1、配置监听地址" class="headerlink" title="1、配置监听地址"></a>1、<strong>配置</strong>监听地址</h6><pre><code>   location / &#123;
+            proxy_pass http://127.0.0.1：8080; //反向代理服务器地址：端口
+    &#125;
+    location ~ .*\.(js|css)?$
+    &#123;
+        #解决反向代理无法访问js,css
+        proxy_pass http://127.0.0.1：8080;
+        proxy_set_header   Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;
+        expires      12h;
+    &#125;        
+</code></pre>
+<p>配置更改过后需要重启nginx;</p>
+<h2 id="5、Nginx常见配置"><a href="#5、Nginx常见配置" class="headerlink" title="5、Nginx常见配置"></a>5、Nginx常见配置</h2><p>1、设置 404 页面导向地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error_page 404 https://www.runnob.com; #错误页</span><br><span class="line">proxy_intercept_errors on;    #如果被代理服务器返回的状态码为400或者大于400，设置的error_page配置起作用。默认为off。</span><br></pre></td></tr></table></figure>
 
-<p>悲观锁是一种利用数据库内部机制提供的锁的方法，也就是对更新的数据加锁，这样在并发期间一旦有 一个事务持有了数据库记录的锁，其他的线程将不能再对数据进行更新. 在 SQL 中加入的 for update 语句，意味着将持有对数据库记录的行更新锁（因为这里使用主键查询， 所以只会对行加锁。如果使用的是非主键查询，要考虑是否对全表加锁的问题，加锁后可能引发其他查询的阻塞〉，那就意味着在高并发的场景下 ， 当一条事务持有了这个更新锁才能往下操作，其他的线程 如果要更新这条记录，都需要等待，这样就不会出现超发现象引发的数据一致性问题了。</p>
-<p>对于悲观锁来说，当一条线程抢占了资源后，其他的线程将得不到资源，那么这个时， CPU 就会将这些 得不到资源的线程挂起，挂起的线程也会消耗 CPU 的资源尤其是在高并发的请求中。只能有一个事务占据资源，其他事务被挂起等待持有资源的事务提交并释放资源。当此时就进入了线程 2 ， 线程 3……线程n，开始抢夺资源的步骤了，这里假设线程 3 抢到资源。一旦线程1 提交了事务，那么锁就会被释放，这个时候被挂起的线程就会开始竞争红包资源，那么竞争 到的线程就会被 CPU 恢复到运行状态，继续运行。 于是频繁挂起，等待持有锁线程释放资源， 一旦释放资源后，就开始抢夺，恢复线程，直至所有红包资 源抢完。 在高并发的过程中，使用悲观锁就会造成大量的线程被挂起和恢复，这将十分消耗资源，这就是为什么 使用悲观锁性能不佳的原因。 有些时候，我们也会把悲观锁称为独占锁，毕竟只有一个线程可以独占这个资源，或者称为阻塞锁，因 为它会造成其他线程的阻塞。无论如何它都会造成并发能力的下降，从而导致 CPU频繁切换线程上下 文，造成性能低下。 为了克服这个问题，提高并发的能力，避免大量线程因为阻塞导致 CPU 进行大量的上下文切换，目前比 较普遍的是乐观锁机制。</p>
-<p>要使用悲观锁，必须关闭 <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/359c3fe50c7f">MySQL</a> 数据库的自动提交属性<code>set autocommit=0</code>。因为 MySQL 默认使用 autocommit 模式，也就是说，当执行一个更新操作后，MySQL 会立刻将结果进行提交。</p>
-<h1 id="乐观锁："><a href="#乐观锁：" class="headerlink" title="乐观锁："></a>乐观锁：</h1><p>乐观锁是相对悲观锁而言的，乐观锁假设数据一般情况不会造成冲突，所以在数据进行提交更新的时候，才会正式对数据的冲突与否进行检测，如果冲突，则返回给用户异常信息，让用户决定如何去做。乐观锁适用于读多写少的场景，这样可以提高程序的吞吐量。</p>
-<p>乐观锁采取了更加宽松的加锁机制。也是为了避免数据库幻读、业务处理时间过长等原因引起数据处理错误的一种机制，但乐观锁不会刻意使用数据库本身的锁机制，而是依据数据本身来保证数据的正确性。乐观锁的实现：</p>
-<h2 id="版本号控制"><a href="#版本号控制" class="headerlink" title="版本号控制"></a>版本号控制</h2><p>一般是在数据表中加上一个数据版本号 version 字段，表示数据被修改的次数。当数据被修改时，version 值会 +1。当线程 A 要更新数据时，在读取数据的同时也会读取 version 值，在提交更新时，若刚才读取到的 version 值与当前数据库中的 version 值相等时才更新，否则重试更新操作，直到更新成功。</p>
-<p>乐观锁每次在执行数据修改操作时，都会带上一个版本号，一旦版本号和数据的版本号一致就可以执行修改操作并对版本号执行 +1 操作，否则就执行失败。因为每次操作的版本号都会随之增加。除了 version 以外，还可以使用时间戳，因为时间戳天然具有顺序递增性。</p>
+<p>2、如果我们的代理只允许接受get，post请求方法的一种</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_method get;    #支持客户端的请求方法。post/get；</span><br></pre></td></tr></table></figure>
 
+<p>3、设置支持的http协议版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy_http_version 1.0 ; #Nginx服务器提供代理服务的http协议版本1.0，1.1，默认设置为1.0版本</span><br></pre></td></tr></table></figure>
+
+<p>4、如果你想通过http获取客户的真实ip而不是获取代理服务器的ip地址，那么要做如下的设置。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxy_set_header Host $host; #只要用户在浏览器中访问的域名绑定了 VIP VIP 下面有RS；则就用$host ；host是访问URL中的域名和端口  www.taobao.com:80</span><br><span class="line">proxy_set_header X-Real-IP $remote_addr;  #把源IP 【$remote_addr,建立HTTP连接header里面的信息】赋值给X-Real-IP;这样在代码中 $X-Real-IP来获取 源IP</span><br><span class="line">proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;#在nginx 作为代理服务器时，设置的IP列表，会把经过的机器ip，代理机器ip都记录下来，用 【，】隔开；代码中用 echo $x-forwarded-for |awk -F, &#x27;&#123;print $1&#125;&#x27; 来作为源IP</span><br></pre></td></tr></table></figure>
+
+<p>5、代理配置的配置文件部分，仅供参考。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">include       mime.types;   #文件扩展名与文件类型映射表</span><br><span class="line">default_type  application/octet-stream; #默认文件类型，默认为text/plain</span><br><span class="line">#access_log off; #取消服务日志    </span><br><span class="line">log_format myFormat &#x27; $remote_addr–$remote_user [$time_local] $request $status $body_bytes_sent $http_referer $http_user_agent $http_x_forwarded_for&#x27;; #自定义格式</span><br><span class="line">access_log log/access.log myFormat;  #combined为日志格式的默认值</span><br><span class="line">sendfile on;   #允许sendfile方式传输文件，默认为off，可以在http块，server块，location块。</span><br><span class="line">sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。</span><br><span class="line">keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。</span><br><span class="line">proxy_connect_timeout 1;   #nginx服务器与被代理的服务器建立连接的超时时间，默认60秒</span><br><span class="line">proxy_read_timeout 1; #nginx服务器想被代理服务器组发出read请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_send_timeout 1; #nginx服务器想被代理服务器组发出write请求后，等待响应的超时间，默认为60秒。</span><br><span class="line">proxy_http_version 1.0 ; #Nginx服务器提供代理服务的http协议版本1.0，1.1，默认设置为1.0版本。</span><br><span class="line">#proxy_method get;    #支持客户端的请求方法。post/get；</span><br><span class="line">proxy_ignore_client_abort on;  #客户端断网时，nginx服务器是否终端对被代理服务器的请求。默认为off。</span><br><span class="line">proxy_ignore_headers &quot;Expires&quot; &quot;Set-Cookie&quot;;  #Nginx服务器不处理设置的http相应投中的头域，这里空格隔开可以设置多个。</span><br><span class="line">proxy_intercept_errors on;    #如果被代理服务器返回的状态码为400或者大于400，设置的error_page配置起作用。默认为off。</span><br><span class="line">proxy_headers_hash_max_size 1024; #存放http报文头的哈希表容量上限，默认为512个字符。</span><br><span class="line">proxy_headers_hash_bucket_size 128; #nginx服务器申请存放http报文头的哈希表容量大小。默认为64个字符。</span><br><span class="line">proxy_next_upstream timeout;  #反向代理upstream中设置的服务器组，出现故障时，被代理服务器返回的状态值。error|timeout|invalid_header|http_500|http_502|http_503|http_504|http_404|off</span><br><span class="line">#proxy_ssl_session_reuse on; 默认为on，如果我们在错误日志中发现“SSL3_GET_FINSHED:digest check failed”的情况时，可以将该指令设置为off。</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -528,7 +554,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/06/03/%E6%82%B2%E8%A7%82%E9%94%81%E4%B8%8E%E4%B9%90%E8%A7%82%E9%94%81/">https://yunpumian.github.io/yunpumian/yunpumian/2021/06/03/%E6%82%B2%E8%A7%82%E9%94%81%E4%B8%8E%E4%B9%90%E8%A7%82%E9%94%81/</a>
+                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/18/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/18/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -737,13 +763,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yunpumian/2021/06/05/MySQL%E7%AC%94%E8%AE%B02/">
+                <a href="/yunpumian/2021/08/18/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/12.jpg" class="responsive-img" alt="MYSQL笔记2">
+                        <img src="/yunpumian/medias/featureimages/23.jpg" class="responsive-img" alt="Nginx负载均衡策略">
                         
-                        <span class="card-title">MYSQL笔记2</span>
+                        <span class="card-title">Nginx负载均衡策略</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -754,7 +780,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-05
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
                         </span>
                         <span class="publish-author">
                             
@@ -774,13 +800,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunpumian/2021/06/03/JMeter%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95%EF%BC%9A/">
+                <a href="/yunpumian/2021/08/16/TX-LCN%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%96%B9%E6%A1%88/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/1.jpg" class="responsive-img" alt="JMeter压力测试">
+                        <img src="/yunpumian/medias/featureimages/2.jpg" class="responsive-img" alt="TX-LCN分布式事务使用方案">
                         
-                        <span class="card-title">JMeter压力测试</span>
+                        <span class="card-title">TX-LCN分布式事务使用方案</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -791,7 +817,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-03
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-16
                             </span>
                         <span class="publish-author">
                             
