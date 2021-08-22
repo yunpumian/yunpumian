@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="RBAC权限认证模型, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>RBAC权限认证模型 | 云扑面</title>
+    <title>云扑面</title>
     <link rel="icon" type="image/png" href="/yunpumian/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/yunpumian/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">RBAC权限认证模型</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-10
+                    2021-08-22
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    469
+                    856
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    3 分
                 </div>
                 
 
@@ -492,17 +492,30 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="RBAC是什么？"><a href="#RBAC是什么？" class="headerlink" title="RBAC是什么？"></a>RBAC是什么？</h1><p><a target="_blank" rel="noopener" href="http://www.sojson.com/tag_rbac.html">RBAC </a>是基于角色的访问控制（<code>Role-Based Access Control</code> ）在<a target="_blank" rel="noopener" href="http://www.sojson.com/tag_rbac.html"> RBAC </a>中，权限与角色相关联，用户通过成为适当角色的成员而得到这些角色的权限。这就极大地简化了权限的管理。这样管理都是层级相互依赖的，权限赋予给角色，而把角色又赋予用户，这样的权限设计很清楚，管理起来很方便</p>
-<h1 id="RBAC介绍。"><a href="#RBAC介绍。" class="headerlink" title="RBAC介绍。"></a>RBAC介绍。</h1><p><a target="_blank" rel="noopener" href="http://www.sojson.com/tag_rbac.html">RBAC </a>认为授权实际上是<code>Who</code> 、<code>What</code> 、<code>How</code> 三元组之间的关系，也就是<code>Who</code> 对<code>What</code> 进行<code>How</code> 的操作，也就是“主体”对“客体”的操作。</p>
-<p><strong>Who：是权限的拥有者或主体（如：User，Role）。</strong></p>
-<p><strong>What：是操作或对象（operation，object）。</strong></p>
-<p><strong>How：具体的权限（Privilege,正向授权与负向授权）。</strong></p>
-<p>SpringSecurity如果认证成功，但是报405,不支持post方法。要将认证成功跳转后的请求写一个控制层.@RequestMapping;</p>
-<p>RBAC代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wn.guanjiapo.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wn.guanjiapo.config.GlobalExceptionHandler;</span><br><span class="line"><span class="keyword">import</span> com.wn.guanjiapo.mapper.UserMapper;</span><br><span class="line"><span class="keyword">import</span> com.wn.guanjiapo.pojo.User;</span><br><span class="line"><span class="keyword">import</span> com.wn.guanjiapo.service.RbacService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.access.AccessDeniedException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.Authentication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.util.AntPathMatcher;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> :wn</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span> : guanjiapo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descript</span> :</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> :2021-06-10 09:47</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component(&quot;rbacService&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RbacServiceImpl</span> <span class="keyword">implements</span> <span class="title">RbacService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> AntPathMatcher antPathMatcher = <span class="keyword">new</span> AntPathMatcher();</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    UserMapper userMapper;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPermission</span><span class="params">(HttpServletRequest request, Authentication authentication)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Object principal = authentication.getPrincipal();</span><br><span class="line">        <span class="keyword">boolean</span> hasPermission = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(principal!=<span class="keyword">null</span> &amp;&amp; principal <span class="keyword">instanceof</span> User) &#123;</span><br><span class="line">            String username = ((User) principal).getUsername();</span><br><span class="line">            Set&lt;String&gt; urls = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">            User user = userMapper.chaXunByUserName(username);</span><br><span class="line">            <span class="keyword">if</span>(user.equals(<span class="keyword">null</span>))&#123;</span><br><span class="line">                <span class="keyword">new</span> GlobalExceptionHandler().handleAccessException(<span class="keyword">new</span> AccessDeniedException(<span class="string">&quot;权限不够&quot;</span>),(Model) <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/error&quot;</span>));</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                urls.add(<span class="string">&quot;/**&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (String url : urls) &#123;</span><br><span class="line">                <span class="keyword">if</span> (antPathMatcher.match(url, request.getRequestURI()))&#123;</span><br><span class="line">                    hasPermission=<span class="keyword">true</span>;</span><br><span class="line">                    System.out.println(url+request.getRequestURI());</span><br><span class="line">                    System.out.println(hasPermission);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    hasPermission=<span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> hasPermission;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <hr>
+<h2 id="Elasticsearch安装以及配置"><a href="#Elasticsearch安装以及配置" class="headerlink" title="Elasticsearch安装以及配置"></a>Elasticsearch安装以及配置</h2><h2 id="1、Elasticsearch-概述"><a href="#1、Elasticsearch-概述" class="headerlink" title="1、Elasticsearch 概述"></a><strong>1、Elasticsearch 概述</strong></h2><p>​    Elasticsearch 是一个实时的分布式搜索分析引擎， 它能让你以一个之前从未有过的速度和规模，去探索你的数据。 它被用作全文检索、结构化搜索、分析以及这三个功能的组合；</p>
+<h2 id="2、Elasticsearch-的用途是什么？"><a href="#2、Elasticsearch-的用途是什么？" class="headerlink" title="2、Elasticsearch 的用途是什么？"></a>2、Elasticsearch 的用途是什么？</h2><p>Elasticsearch 在速度和可扩展性方面都表现出色，而且还能够索引多种类型的内容，这意味着其可用于多种用例：</p>
+<ul>
+<li>应用程序搜索</li>
+<li>网站搜索</li>
+<li>企业搜索</li>
+<li>日志处理和分析</li>
+<li>基础设施指标和容器监测</li>
+<li>应用程序性能监测</li>
+<li>地理空间数据分析和可视化</li>
+<li>安全分析</li>
+<li>业务分析</li>
+</ul>
+<h2 id="3、Elasticsearch-的工作原理是什么？"><a href="#3、Elasticsearch-的工作原理是什么？" class="headerlink" title="3、Elasticsearch 的工作原理是什么？"></a>3、Elasticsearch 的工作原理是什么？</h2><p>原始数据会从多个来源（包括日志、系统指标和网络应用程序）输入到 Elasticsearch 中。<em>数据采集</em>指在 Elasticsearch 中进行<em>索引</em>之前解析、标准化并充实这些原始数据的过程。这些数据在 Elasticsearch 中索引完成之后，用户便可针对他们的数据运行复杂的查询，并使用聚合来检索自身数据的复杂汇总。在 Kibana 中，用户可以基于自己的数据创建强大的可视化，分享仪表板，并对 Elastic Stack 进行管理。</p>
+<h2 id="4、Elasticsearch-索引是什么？"><a href="#4、Elasticsearch-索引是什么？" class="headerlink" title="4、Elasticsearch 索引是什么？"></a>4、Elasticsearch 索引是什么？</h2><p>Elasticsearch <em>索引</em>指相互关联的文档集合。Elasticsearch 会以 JSON 文档的形式存储数据。每个文档都会在一组<em>键</em>（字段或属性的名称）和它们对应的值（字符串、数字、布尔值、日期、<em>数值</em>组、地理位置或其他类型的数据）之间建立联系。</p>
+<p>Elasticsearch 使用的是一种名为<em>倒排索引</em>的数据结构，这一结构的设计可以允许十分快速地进行全文本搜索。倒排索引会列出在所有文档中出现的每个特有词汇，并且可以找到包含每个词汇的全部文档。</p>
+<p>在索引过程中，Elasticsearch 会存储文档并构建倒排索引，这样用户便可以近实时地对文档数据进行搜索。索引过程是在索引 API 中启动的，通过此 API 您既可向特定索引中添加 JSON 文档，也可更改特定索引中的 JSON 文档。</p>
+<h2 id="5、Kibana-的用途是什么？"><a href="#5、Kibana-的用途是什么？" class="headerlink" title="5、Kibana 的用途是什么？"></a>5、Kibana 的用途是什么？</h2><p>Kibana 是一款适用于 Elasticsearch 的数据可视化和管理工具，可以提供实时的直方图、线形图、饼状图和地图。Kibana 同时还包括诸如 Canvas 和 Elastic Maps 等高级应用程序；Canvas 允许用户基于自身数据创建定制的动态信息图表，而 Elastic Maps 则可用来对地理空间数据进行可视化。</p>
+<h2 id="6、Elasticsearch-的配置"><a href="#6、Elasticsearch-的配置" class="headerlink" title="6、Elasticsearch 的配置"></a>6、Elasticsearch 的配置</h2><p>1、Elasticsearch 必须为其专门配置一个用户，不能在root用户下使用</p>
+<h4 id="否则会报：org-elasticsearch-bootstrap-StartupException-java-lang-RuntimeException-can-not-run-elasticsearch-as-root"><a href="#否则会报：org-elasticsearch-bootstrap-StartupException-java-lang-RuntimeException-can-not-run-elasticsearch-as-root" class="headerlink" title="否则会报：org.elasticsearch.bootstrap.StartupException: java.lang.RuntimeException: can not run elasticsearch as root"></a>否则会报：org.elasticsearch.bootstrap.StartupException: java.lang.RuntimeException: can not run elasticsearch as root</h4><p>如果启动成功，根据外网访问不能访问成功，先查看服务器端口是否打开，或者防火墙没有打开；</p>
+<p>访问9200端口，如果还是不可以访问，可以用nginx配反向代理，访问该端口；如果出现Elasticsearch 的配置信息；则表示安装成功；</p>
+<h2 id="7、Kibana的安装和配置"><a href="#7、Kibana的安装和配置" class="headerlink" title="7、Kibana的安装和配置"></a>7、Kibana的安装和配置</h2><p>下载kibana，配置相应的Elasticsearch服务器地址，端口等基本配置；</p>
 
-<p>SpringSecurity解决界面嵌套问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.headers().frameOptions().disable();</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -528,7 +541,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/06/10/RBAC%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81%E6%A8%A1%E5%9E%8B/">https://yunpumian.github.io/yunpumian/yunpumian/2021/06/10/RBAC%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81%E6%A8%A1%E5%9E%8B/</a>
+                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/22/Elasticsearch%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/22/Elasticsearch%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -733,11 +746,12 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yunpumian/2021/06/20/Vue%E7%AC%94%E8%AE%B0/">
+                <a href="/yunpumian/2021/08/22/Elasticsearch%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
@@ -753,9 +767,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -764,6 +778,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -774,13 +789,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunpumian/2021/06/10/MySQL%E7%AC%94%E8%AE%B03/">
+                <a href="/yunpumian/2021/08/22/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/19.jpg" class="responsive-img" alt="MySQL笔记3">
+                        <img src="/yunpumian/medias/featureimages/5.jpg" class="responsive-img" alt="Vue生命周期">
                         
-                        <span class="card-title">MySQL笔记3</span>
+                        <span class="card-title">Vue生命周期</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -791,7 +806,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-22
                             </span>
                         <span class="publish-author">
                             

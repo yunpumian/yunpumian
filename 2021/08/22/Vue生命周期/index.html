@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="RBAC权限认证模型, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="Vue生命周期, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>RBAC权限认证模型 | 云扑面</title>
+    <title>Vue生命周期 | 云扑面</title>
     <link rel="icon" type="image/png" href="/yunpumian/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/yunpumian/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/5.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">RBAC权限认证模型</h1>
+                    <h1 class="description center-align post-title">Vue生命周期</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-06-10
+                    2021-08-22
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    469
+                    1.2k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    2 分
+                    4 分
                 </div>
                 
 
@@ -492,17 +492,60 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="RBAC是什么？"><a href="#RBAC是什么？" class="headerlink" title="RBAC是什么？"></a>RBAC是什么？</h1><p><a target="_blank" rel="noopener" href="http://www.sojson.com/tag_rbac.html">RBAC </a>是基于角色的访问控制（<code>Role-Based Access Control</code> ）在<a target="_blank" rel="noopener" href="http://www.sojson.com/tag_rbac.html"> RBAC </a>中，权限与角色相关联，用户通过成为适当角色的成员而得到这些角色的权限。这就极大地简化了权限的管理。这样管理都是层级相互依赖的，权限赋予给角色，而把角色又赋予用户，这样的权限设计很清楚，管理起来很方便</p>
-<h1 id="RBAC介绍。"><a href="#RBAC介绍。" class="headerlink" title="RBAC介绍。"></a>RBAC介绍。</h1><p><a target="_blank" rel="noopener" href="http://www.sojson.com/tag_rbac.html">RBAC </a>认为授权实际上是<code>Who</code> 、<code>What</code> 、<code>How</code> 三元组之间的关系，也就是<code>Who</code> 对<code>What</code> 进行<code>How</code> 的操作，也就是“主体”对“客体”的操作。</p>
-<p><strong>Who：是权限的拥有者或主体（如：User，Role）。</strong></p>
-<p><strong>What：是操作或对象（operation，object）。</strong></p>
-<p><strong>How：具体的权限（Privilege,正向授权与负向授权）。</strong></p>
-<p>SpringSecurity如果认证成功，但是报405,不支持post方法。要将认证成功跳转后的请求写一个控制层.@RequestMapping;</p>
-<p>RBAC代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.wn.guanjiapo.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.wn.guanjiapo.config.GlobalExceptionHandler;</span><br><span class="line"><span class="keyword">import</span> com.wn.guanjiapo.mapper.UserMapper;</span><br><span class="line"><span class="keyword">import</span> com.wn.guanjiapo.pojo.User;</span><br><span class="line"><span class="keyword">import</span> com.wn.guanjiapo.service.RbacService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.access.AccessDeniedException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.Authentication;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.util.AntPathMatcher;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> java.util.HashSet;</span><br><span class="line"><span class="keyword">import</span> java.util.Set;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> :wn</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@program</span> : guanjiapo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@descript</span> :</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span> :2021-06-10 09:47</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@Component(&quot;rbacService&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RbacServiceImpl</span> <span class="keyword">implements</span> <span class="title">RbacService</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> AntPathMatcher antPathMatcher = <span class="keyword">new</span> AntPathMatcher();</span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    UserMapper userMapper;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">hasPermission</span><span class="params">(HttpServletRequest request, Authentication authentication)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        Object principal = authentication.getPrincipal();</span><br><span class="line">        <span class="keyword">boolean</span> hasPermission = <span class="keyword">false</span>;</span><br><span class="line">        <span class="keyword">if</span>(principal!=<span class="keyword">null</span> &amp;&amp; principal <span class="keyword">instanceof</span> User) &#123;</span><br><span class="line">            String username = ((User) principal).getUsername();</span><br><span class="line">            Set&lt;String&gt; urls = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line">            User user = userMapper.chaXunByUserName(username);</span><br><span class="line">            <span class="keyword">if</span>(user.equals(<span class="keyword">null</span>))&#123;</span><br><span class="line">                <span class="keyword">new</span> GlobalExceptionHandler().handleAccessException(<span class="keyword">new</span> AccessDeniedException(<span class="string">&quot;权限不够&quot;</span>),(Model) <span class="keyword">new</span> ModelAndView(<span class="string">&quot;/error&quot;</span>));</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                urls.add(<span class="string">&quot;/**&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">for</span> (String url : urls) &#123;</span><br><span class="line">                <span class="keyword">if</span> (antPathMatcher.match(url, request.getRequestURI()))&#123;</span><br><span class="line">                    hasPermission=<span class="keyword">true</span>;</span><br><span class="line">                    System.out.println(url+request.getRequestURI());</span><br><span class="line">                    System.out.println(hasPermission);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                    hasPermission=<span class="keyword">false</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> hasPermission;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+                <h2 id="1、Vue的钩子函数"><a href="#1、Vue的钩子函数" class="headerlink" title="1、Vue的钩子函数"></a>1、Vue的钩子函数</h2><ul>
+<li><strong>beforeCreate</strong></li>
+<li><strong>created</strong></li>
+<li><strong>beforeMount</strong></li>
+<li><strong>mounted</strong></li>
+<li><strong>beforeUpdate</strong></li>
+<li><strong>updated</strong></li>
+<li><strong>beforeDestroy</strong></li>
+<li><strong>destroyed</strong></li>
+</ul>
+<h3 id="1-1、beforeCreate-创建前"><a href="#1-1、beforeCreate-创建前" class="headerlink" title="1.1、beforeCreate( 创建前 )"></a>1.1、beforeCreate( 创建前 )</h3><p>在实例初始化之后，数据观测和事件配置之前被调用，此时组件的选项对象还未创建，el 和 data 并未初始化，因此无法访问methods， data， computed等上的方法和数据。</p>
+<h3 id="1-2、created-创建后"><a href="#1-2、created-创建后" class="headerlink" title="1.2、created(创建后)"></a>1.2、created(创建后)</h3><p>实例已经创建完成之后被调用，在这一步，实例已完成以下配置：数据观测、属性和方法的运算，watch/event事件回调，完成了data 数据的初始化，el没有。 然而，挂在阶段还没有开始, $el属性目前不可见，这是一个常用的生命周期，因为你可以调用methods中的方法，改变data中的数据，并且修改可以通过vue的响应式绑定体现在页面上，，获取computed中的计算属性等等，通常我们可以在这里对实例进行预处理，也有一些童鞋喜欢在这里发ajax请求，值得注意的是，这个周期中是没有什么方法来对实例化过程进行拦截的，因此假如有某些数据必须获取才允许进入页面的话，并不适合在这个方法发请求，建议在组件路由钩子beforeRouteEnter中完成</p>
+<h3 id="1-3、beforeMount"><a href="#1-3、beforeMount" class="headerlink" title="1.3、beforeMount"></a>1.3、beforeMount</h3><p>挂在开始之前被调用，相关的render函数首次被调用（虚拟DOM），实例已完成以下的配置： 编译模板，把data里面的数据和模板生成html，完成了el和data 初始化，注意此时还没有挂在html到页面上</p>
+<h3 id="1-4、mounted"><a href="#1-4、mounted" class="headerlink" title="1.4、mounted"></a>1.4、mounted</h3><p>挂在完成，也就是模板中的HTML渲染到HTML页面中，此时一般可以做一些ajax操作，mounted只会执行一次。</p>
+<h3 id="1-5、beforeUpdate（更新前）"><a href="#1-5、beforeUpdate（更新前）" class="headerlink" title="1.5、beforeUpdate（更新前）"></a>1.5、beforeUpdate（更新前）</h3><p>在数据更新之前被调用，发生在虚拟DOM重新渲染和打补丁之前，可以在该钩子中进一步地更改状态，不会触发附加地重渲染过程</p>
+<h3 id="1-6、updated（更新后）"><a href="#1-6、updated（更新后）" class="headerlink" title="1.6、updated（更新后）"></a>1.6、updated（更新后）</h3><p>在由于数据更改导致地虚拟DOM重新渲染和打补丁只会调用，调用时，组件DOM已经更新，所以可以执行依赖于DOM的操作，然后在大多是情况下，应该避免在此期间更改状态，因为这可能会导致更新无限循环，该钩子在服务器端渲染期间不被调用</p>
+<h3 id="1-7、beforeDestroy（销毁前）"><a href="#1-7、beforeDestroy（销毁前）" class="headerlink" title="1.7、beforeDestroy（销毁前）"></a>1.7、beforeDestroy（销毁前）</h3><p>在实例销毁之前调用，实例仍然完全可用，</p>
+<ol>
+<li>这一步还可以用this来获取实例，</li>
+<li>一般在这一步做一些重置的操作，比如清除掉组件中的定时器  和 监听的dom事件</li>
+</ol>
+<h3 id="1-8、destroyed（销毁后）"><a href="#1-8、destroyed（销毁后）" class="headerlink" title="1.8、destroyed（销毁后）"></a>1.8、destroyed（销毁后）</h3><p>在实例销毁之后调用，调用后，所以的事件监听器会被移出，所有的子实例也会被销毁，该钩子在服务器端渲染期间不被调用</p>
+<h3 id="1-1-1、在beforeCreate和created钩子函数之间的生命周期"><a href="#1-1-1、在beforeCreate和created钩子函数之间的生命周期" class="headerlink" title="1.1.1、在beforeCreate和created钩子函数之间的生命周期"></a>1.1.1、<strong>在beforeCreate和created钩子函数之间的生命周期</strong></h3><p>在这个生命周期之间，进行<strong>初始化事件，进行数据的观测</strong>，可以看到在<strong>created</strong>的时候数据已经和<strong>data属性进行绑定</strong>（放在data中的属性当值发生改变的同时，视图也会改变）。</p>
+<h2 id="2、vue的生命周期是什么"><a href="#2、vue的生命周期是什么" class="headerlink" title="2、vue的生命周期是什么"></a><strong>2、vue的生命周期是什么</strong></h2><p>  vue每个组件都是独立的，每个组件都有一个属于它的生命周期，从一个组件<strong>创建、数据初始化、挂载、更新、销毁</strong>，这就是一个组件所谓的生命周期。在组件中具体的方法有:</p>
+<p>  beforeCreate</p>
+<p>  created</p>
+<p>  beforeMount</p>
+<p>  mounted</p>
+<p>  (</p>
+<p>​     beforeUpdate</p>
+<p>​     updated</p>
+<p>   )</p>
+<p>  beforeDestroy</p>
+<p>  destroyed</p>
+<h2 id="3、Vue的变异方法"><a href="#3、Vue的变异方法" class="headerlink" title="3、Vue的变异方法"></a>3、Vue的变异方法</h2><p><strong>Vue 包含一组观察数组的变异方法，变异方法 (mutation method)，顾名思义，会改变被这些方法调用的原始数组</strong></p>
+<p><strong>所以它们也将会触发视图更新。这些方法如下：</strong></p>
+<ul>
+<li><strong><code>push()</code></strong></li>
+<li><strong><code>pop()</code></strong></li>
+<li><strong><code>shift()</code></strong></li>
+<li><strong><code>unshift()</code></strong></li>
+<li><strong><code>splice()</code></strong></li>
+<li><strong><code>sort()</code></strong></li>
+<li><strong><code>reverse()</code></strong></li>
+</ul>
+<p>变异方法</p>
+<p>push() 接收任意数量的参数，把它们逐个添加到数组末尾，并返回修改后数组的长度</p>
+<p>pop() 从数组末尾移除最后一项，减少数组的length值，然后返回移除的项</p>
+<p>shift() 移除数组中的第一个项并返回该项，同时数组的长度减1</p>
+<p>unshift() 在数组前端添加任意个项并返回新数组长度</p>
+<p>splice() 删除原数组的一部分成员，并可以在被删除的位置添加入新的数组成员</p>
+<p>sort() 调用每个数组项的toString()方法，然后比较得到的字符串排序，返回经过排序之后的数组</p>
+<p>reverse() 用于反转数组的顺序，返回经过排序之后的数组</p>
 
-<p>SpringSecurity解决界面嵌套问题：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http.headers().frameOptions().disable();</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -528,7 +571,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/06/10/RBAC%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81%E6%A8%A1%E5%9E%8B/">https://yunpumian.github.io/yunpumian/yunpumian/2021/06/10/RBAC%E6%9D%83%E9%99%90%E8%AE%A4%E8%AF%81%E6%A8%A1%E5%9E%8B/</a>
+                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/22/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/22/Vue%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -737,7 +780,7 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yunpumian/2021/06/20/Vue%E7%AC%94%E8%AE%B0/">
+                <a href="/yunpumian/2021/08/22/Elasticsearch%E5%AE%89%E8%A3%85%E5%8F%8A%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
                     <div class="card-image">
                         
                         
@@ -754,7 +797,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-22
                         </span>
                         <span class="publish-author">
                             
@@ -774,13 +817,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunpumian/2021/06/10/MySQL%E7%AC%94%E8%AE%B03/">
+                <a href="/yunpumian/2021/08/18/Nginx%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1%E7%AD%96%E7%95%A5/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/19.jpg" class="responsive-img" alt="MySQL笔记3">
+                        <img src="/yunpumian/medias/featureimages/23.jpg" class="responsive-img" alt="Nginx负载均衡策略">
                         
-                        <span class="card-title">MySQL笔记3</span>
+                        <span class="card-title">Nginx负载均衡策略</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -791,7 +834,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-10
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
                             </span>
                         <span class="publish-author">
                             
