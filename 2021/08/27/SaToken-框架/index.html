@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="TX-LCN分布式事务使用方案, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="SaToken 框架, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>TX-LCN分布式事务使用方案 | 云扑面</title>
+    <title>SaToken 框架 | 云扑面</title>
     <link rel="icon" type="image/png" href="/yunpumian/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/yunpumian/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/21.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">TX-LCN分布式事务使用方案</h1>
+                    <h1 class="description center-align post-title">SaToken 框架</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-16
+                    2021-08-27
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    771
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    2 分
                 </div>
                 
 
@@ -492,36 +492,45 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-分布式事务是什么？"><a href="#1-分布式事务是什么？" class="headerlink" title="1. 分布式事务是什么？"></a><strong>1. 分布式事务是什么？</strong></h4><p>在分布式系统中，事务参与者在不同的分布式节点上或事务操作的数据源不是同一个，这些情况产生的事务都叫做分布式事务。</p>
-<p>例如：</p>
-<p>项目A实现user表新增、项目B实现role新增，现在需要实现用户权限新增，需要把项目A和项目B两个项目新增的方法组成一个事务，这个事务就是分布式事务。</p>
-<p>项目中向MySQL做新增，同时还需要向Redis或MongoDB执行新增，希望执行MySQL或Redis或MongoDB时如果出现异常进行事务回滚，这种情况也成为分布式事务。</p>
-<h4 id="2-什么是事务"><a href="#2-什么是事务" class="headerlink" title="2.什么是事务"></a>2.什么是事务</h4><p>一个事务（本地事务）就是一系列SQL语句的集合，只要在执行过程中一条SQL出错就会导致整个事务失败，回滚到原点。而在分布式系统中存在多模块完成一次业务。那么就存在一个业务由多模块操作同一个数据源。</p>
-<h4 id="3-分布式事务常见解决方案"><a href="#3-分布式事务常见解决方案" class="headerlink" title="3. 分布式事务常见解决方案"></a><strong>3. 分布式事务常见解决方案</strong></h4><p><strong>3.1 基于XA协议的两阶段提交</strong></p>
-<p>分布式事务通常采用2PC协议，全称Two Phase Commitment Protocol。该协议主要为了解决在分布式数据库场景下，所有节点间数据一致性的问题。分布式事务通过2PC协议将提交分成两个阶段：</p>
-<ol>
-<li>prepare</li>
-<li>commit/rollback</li>
-</ol>
-<p>阶段一为准备（prepare）阶段。即所有的参与者准备执行事务并锁住需要的资源。参与者ready时，向transaction manager报告已准备就绪。</p>
-<p>阶段二为提交阶段（commit）。当transaction manager确认所有参与者都ready后，向所有参与者发送commit命令。</p>
-<p><strong>3.2 消息事务+最终一致性</strong></p>
-<p>所谓的消息事务就是基于消息中间件的两阶段提交，本质上是对消息中间件的一种特殊利用，它是将本地事务和发消息放在了一个分布式事务里，保证要么本地操作成功并且对外发消息成功，要么两者都失败</p>
-<p>分布式事务，本质上是对多个数据库的事务进行统一控制，按照控制力度可以分为：不控制、部分控制和完全控制。不控制就是不引入分布式事务，部分控制就是各 种变种的两阶段提交，包括上面提到的消息事务+最终一致性、TCC模式，而完全控制就是完全实现两阶段提交。部分控制的好处是并发量和性能很好，缺点是数 据一致性减弱了，完全控制则是牺牲了性能，保障了一致性，具体用哪种方式，最终还是取决于业务场景。</p>
-<h4 id="4-TX-LCN概述"><a href="#4-TX-LCN概述" class="headerlink" title="4.TX-LCN概述"></a>4.<strong>TX-LCN概述</strong></h4><h5 id="4-1-简介"><a href="#4-1-简介" class="headerlink" title="4.1. 简介**"></a>4.1. 简介**</h5><ul>
-<li><p>1）锁定事务单元（Lock）</p>
-</li>
-<li><p>2）确认事务模块状态（Confirm）</p>
-</li>
-<li><p>3）通知事务（Notify）</p>
-</li>
-<li><p>LCN框架从5.0开始兼容了LCN、TCC、TXC三种事务模式，为了和LCN框架区分，从5.0开始把LCN框架更名为：TX-LCN分布式事务框架。</p>
-<h5 id="4-2-TX-LCN由两大模块组成，"><a href="#4-2-TX-LCN由两大模块组成，" class="headerlink" title="4.2.TX-LCN由两大模块组成，"></a>4.2.TX-LCN由两大模块组成，</h5><h5 id="TxClient、TxManager"><a href="#TxClient、TxManager" class="headerlink" title="TxClient、TxManager"></a>TxClient、TxManager</h5></li>
+                <h3 id="1、Sa-Token-功能一览"><a href="#1、Sa-Token-功能一览" class="headerlink" title="1、Sa-Token 功能一览"></a>1、Sa-Token 功能一览</h3><ul>
+<li><strong>登录认证</strong> —— 单端登录、多端登录、同端互斥登录、七天内免登录</li>
+<li><strong>权限认证</strong> —— 权限认证、角色认证、会话二级认证</li>
+<li><strong>Session会话</strong> —— 全端共享Session、单端独享Session、自定义Session</li>
+<li><strong>踢人下线</strong> —— 根据账号id踢人下线、根据Token值踢人下线</li>
+<li><strong>账号封禁</strong> —— 指定天数封禁、永久封禁、设定解封时间</li>
+<li><strong>持久层扩展</strong> —— 可集成Redis、Memcached等专业缓存中间件，重启数据不丢失</li>
+<li><strong>分布式会话</strong> —— 提供jwt集成、共享数据中心两种分布式会话方案</li>
+<li><strong>微服务网关鉴权</strong> —— 适配Gateway、ShenYu、Zuul等常见网关的路由拦截认证</li>
+<li><strong>单点登录</strong> —— 内置三种单点登录模式：无论是否跨域、是否共享Redis，都可以搞定</li>
+<li><strong>OAuth2.0认证</strong> —— 基于RFC-6749标准编写，OAuth2.0标准流程的授权认证，支持openid模式</li>
+<li><strong>二级认证</strong> —— 在已登录的基础上再次认证，保证安全性</li>
+<li><strong>独立Redis</strong> —— 将权限缓存与业务缓存分离</li>
+<li><strong>临时Token验证</strong> —— 解决短时间的Token授权问题</li>
+<li><strong>模拟他人账号</strong> —— 实时操作任意用户状态数据</li>
+<li><strong>临时身份切换</strong> —— 将会话身份临时切换为其它账号</li>
+<li><strong>前后台分离</strong> —— APP、小程序等不支持Cookie的终端</li>
+<li><strong>同端互斥登录</strong> —— 像QQ一样手机电脑同时在线，但是两个手机上互斥登录</li>
+<li><strong>多账号认证体系</strong> —— 比如一个商城项目的user表和admin表分开鉴权</li>
+<li><strong>花式token生成</strong> —— 内置六种Token风格，还可：自定义Token生成策略、自定义Token前缀</li>
+<li><strong>注解式鉴权</strong> —— 优雅的将鉴权与业务代码分离</li>
+<li><strong>路由拦截式鉴权</strong> —— 根据路由拦截鉴权，可适配restful模式</li>
+<li><strong>自动续签</strong> —— 提供两种Token过期策略，灵活搭配使用，还可自动续签</li>
+<li><strong>会话治理</strong> —— 提供方便灵活的会话查询接口</li>
+<li><strong>记住我模式</strong> —— 适配[记住我]模式，重启浏览器免验证</li>
+<li><strong>密码加密</strong> —— 提供密码加密模块，可快速MD5、SHA1、SHA256、AES、RSA加密</li>
+<li><strong>全局侦听器</strong> —— 在用户登陆、注销、被踢下线等关键性操作时进行一些AOP操作</li>
+<li><strong>开箱即用</strong> —— 提供SpringMVC、WebFlux等常见web框架starter集成包，真正的开箱即用</li>
 </ul>
-<p>TxClient作为模块的依赖框架，提供了TX-LCN的标准支持，事务发起方和参与方都属于TxClient。</p>
-<p>TxManager作为分布式事务的控制方，控制整个事务。</p>
-<p>核心步骤<br>创建事务组<br>是指在事务发起方开始执行业务代码之前先调用TxManager创建事务组对象，然后拿到事务标示GroupId的过程。<br>添加事务组<br>添加事务组是指参与方在执行完业务方法以后，将该模块的事务信息添加通知给TxManager的操作。<br>关闭事务组<br>是指在发起方执行完业务代码以后，将发起方执行结果状态通知给TxManager的动作。当执行完关闭事务组的方法以后，TxManager将根据事务组信息来通知相应的参与模块提交或回滚事务。</p>
+<h2 id="2、使用SaToken"><a href="#2、使用SaToken" class="headerlink" title="2、使用SaToken"></a>2、使用SaToken</h2><p>1、导入依赖：</p>
+<dependency>  
 
+<p>  <groupId>cn.dev33</groupId>   </p>
+<p> <artifactId>sa-token-spring-boot-starter</artifactId>    </p>
+<p><version>1.25.0</version> </p>
+</dependency>
+
+<p>2、</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sa-token:</span><br><span class="line">  token-name: testtoken  //   # token名称 (同时也是cookie名称)</span><br><span class="line">  timeout: 2592000       //     # token有效期，单位s 默认30天, -1代表永不过期 </span><br><span class="line">  activity-timeout: -1  // # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒</span><br><span class="line">  is-concurrent: true  //   # 是否允许同一账号并发登录 (为true时允许一起登录, 为false时新登录挤掉旧登录) </span><br><span class="line">  is-share: true       //    # 在多人登录同一账号时，是否共用一个token (为true时所有登录共用一个token, 为false时每次登录新建一个token) </span><br><span class="line">  token-style: uuid    //# Token风格</span><br><span class="line">  is-log: true</span><br><span class="line">server:</span><br><span class="line">  port: 8081</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -547,7 +556,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/16/TX-LCN%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%96%B9%E6%A1%88/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/16/TX-LCN%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%96%B9%E6%A1%88/</a>
+                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/27/SaToken-%E6%A1%86%E6%9E%B6/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/27/SaToken-%E6%A1%86%E6%9E%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -752,54 +761,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/yunpumian/2021/08/18/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+                <a href="/yunpumian/2021/08/27/SaToken-%E6%A1%86%E6%9E%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/23.jpg" class="responsive-img" alt="Nginx反向代理">
+                        <img src="/yunpumian/medias/featureimages/21.jpg" class="responsive-img" alt="SaToken 框架">
                         
-                        <span class="card-title">Nginx反向代理</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            云扑面
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/yunpumian/2021/06/20/Java8%E8%A7%A3%E5%86%B3%E7%A9%BA%E6%8C%87%E9%92%88/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/yunpumian/medias/featureimages/19.jpg" class="responsive-img" alt="Java8解决空指针">
-                        
-                        <span class="card-title">Java8解决空指针</span>
+                        <span class="card-title">SaToken 框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -810,7 +783,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            云扑面
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/yunpumian/2021/08/27/Nacos/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/yunpumian/medias/featureimages/20.jpg" class="responsive-img" alt="Nacos">
+                        
+                        <span class="card-title">Nacos</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
                             </span>
                         <span class="publish-author">
                             

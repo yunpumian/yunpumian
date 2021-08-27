@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="TX-LCN分布式事务使用方案, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="Nacos, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>TX-LCN分布式事务使用方案 | 云扑面</title>
+    <title>Nacos | 云扑面</title>
     <link rel="icon" type="image/png" href="/yunpumian/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/yunpumian/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/20.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">TX-LCN分布式事务使用方案</h1>
+                    <h1 class="description center-align post-title">Nacos</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-16
+                    2021-08-27
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    1.4k
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    4 分
                 </div>
                 
 
@@ -492,35 +492,35 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-分布式事务是什么？"><a href="#1-分布式事务是什么？" class="headerlink" title="1. 分布式事务是什么？"></a><strong>1. 分布式事务是什么？</strong></h4><p>在分布式系统中，事务参与者在不同的分布式节点上或事务操作的数据源不是同一个，这些情况产生的事务都叫做分布式事务。</p>
-<p>例如：</p>
-<p>项目A实现user表新增、项目B实现role新增，现在需要实现用户权限新增，需要把项目A和项目B两个项目新增的方法组成一个事务，这个事务就是分布式事务。</p>
-<p>项目中向MySQL做新增，同时还需要向Redis或MongoDB执行新增，希望执行MySQL或Redis或MongoDB时如果出现异常进行事务回滚，这种情况也成为分布式事务。</p>
-<h4 id="2-什么是事务"><a href="#2-什么是事务" class="headerlink" title="2.什么是事务"></a>2.什么是事务</h4><p>一个事务（本地事务）就是一系列SQL语句的集合，只要在执行过程中一条SQL出错就会导致整个事务失败，回滚到原点。而在分布式系统中存在多模块完成一次业务。那么就存在一个业务由多模块操作同一个数据源。</p>
-<h4 id="3-分布式事务常见解决方案"><a href="#3-分布式事务常见解决方案" class="headerlink" title="3. 分布式事务常见解决方案"></a><strong>3. 分布式事务常见解决方案</strong></h4><p><strong>3.1 基于XA协议的两阶段提交</strong></p>
-<p>分布式事务通常采用2PC协议，全称Two Phase Commitment Protocol。该协议主要为了解决在分布式数据库场景下，所有节点间数据一致性的问题。分布式事务通过2PC协议将提交分成两个阶段：</p>
-<ol>
-<li>prepare</li>
-<li>commit/rollback</li>
-</ol>
-<p>阶段一为准备（prepare）阶段。即所有的参与者准备执行事务并锁住需要的资源。参与者ready时，向transaction manager报告已准备就绪。</p>
-<p>阶段二为提交阶段（commit）。当transaction manager确认所有参与者都ready后，向所有参与者发送commit命令。</p>
-<p><strong>3.2 消息事务+最终一致性</strong></p>
-<p>所谓的消息事务就是基于消息中间件的两阶段提交，本质上是对消息中间件的一种特殊利用，它是将本地事务和发消息放在了一个分布式事务里，保证要么本地操作成功并且对外发消息成功，要么两者都失败</p>
-<p>分布式事务，本质上是对多个数据库的事务进行统一控制，按照控制力度可以分为：不控制、部分控制和完全控制。不控制就是不引入分布式事务，部分控制就是各 种变种的两阶段提交，包括上面提到的消息事务+最终一致性、TCC模式，而完全控制就是完全实现两阶段提交。部分控制的好处是并发量和性能很好，缺点是数 据一致性减弱了，完全控制则是牺牲了性能，保障了一致性，具体用哪种方式，最终还是取决于业务场景。</p>
-<h4 id="4-TX-LCN概述"><a href="#4-TX-LCN概述" class="headerlink" title="4.TX-LCN概述"></a>4.<strong>TX-LCN概述</strong></h4><h5 id="4-1-简介"><a href="#4-1-简介" class="headerlink" title="4.1. 简介**"></a>4.1. 简介**</h5><ul>
-<li><p>1）锁定事务单元（Lock）</p>
+                <h2 id="1-、什么是Nacos"><a href="#1-、什么是Nacos" class="headerlink" title="1 、什么是Nacos"></a>1 、什么是Nacos</h2><p>服务（Service）是 Nacos 世界的一等公民。Nacos 支持几乎所有主流类型的“服务”的发现、配置和管理;</p>
+<h2 id="2、Nacos的关键特性"><a href="#2、Nacos的关键特性" class="headerlink" title="2、Nacos的关键特性"></a>2、Nacos的关键特性</h2><ul>
+<li><p><strong>服务发现和服务健康监测</strong></p>
+<p>Nacos 支持基于 DNS 和基于 RPC 的服务发现。服务提供者使用 <a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/sdk.html">原生SDK</a>、<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/open-api.html">OpenAPI</a>、或一个<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/other-language.html">独立的Agent TODO</a>注册 Service 后，服务消费者可以使用<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/xx">DNS TODO</a> 或<a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/open-api.html">HTTP&amp;API</a>查找和发现服务。</p>
+<p>Nacos 提供对服务的实时的健康检查，阻止向不健康的主机或服务实例发送请求。Nacos 支持传输层 (PING 或 TCP)和应用层 (如 HTTP、MySQL、用户自定义）的健康检查。 对于复杂的云环境和网络拓扑环境中（如 VPC、边缘网络等）服务的健康检查，Nacos 提供了 agent 上报模式和服务端主动检测2种健康检查模式。Nacos 还提供了统一的健康检查仪表盘，帮助您根据健康状态管理服务的可用性及流量。</p>
 </li>
-<li><p>2）确认事务模块状态（Confirm）</p>
+<li><p><strong>动态配置服务</strong></p>
+<p>动态配置服务可以让您以中心化、外部化和动态化的方式管理所有环境的应用配置和服务配置。</p>
+<p>动态配置消除了配置变更时重新部署应用和服务的需要，让配置管理变得更加高效和敏捷。</p>
+<p>配置中心化管理让实现无状态服务变得更简单，让服务按需弹性扩展变得更容易。</p>
+<p>Nacos 提供了一个简洁易用的UI (<a target="_blank" rel="noopener" href="http://console.nacos.io/nacos/index.html">控制台样例 Demo</a>) 帮助您管理所有的服务和应用的配置。Nacos 还提供包括配置版本跟踪、金丝雀发布、一键回滚配置以及客户端配置更新状态跟踪在内的一系列开箱即用的配置管理特性，帮助您更安全地在生产环境中管理配置变更和降低配置变更带来的风险。</p>
 </li>
-<li><p>3）通知事务（Notify）</p>
+<li><p><strong>动态 DNS 服务</strong></p>
+<p>动态 DNS 服务支持权重路由，让您更容易地实现中间层负载均衡、更灵活的路由策略、流量控制以及数据中心内网的简单DNS解析服务。动态DNS服务还能让您更容易地实现以 DNS 协议为基础的服务发现，以帮助您消除耦合到厂商私有服务发现 API 上的风险。</p>
+<p>Nacos 提供了一些简单的 <a target="_blank" rel="noopener" href="https://nacos.io/zh-cn/docs/xx">DNS APIs TODO</a> 帮助您管理服务的关联域名和可用的 IP:PORT 列表.</p>
 </li>
-<li><p>LCN框架从5.0开始兼容了LCN、TCC、TXC三种事务模式，为了和LCN框架区分，从5.0开始把LCN框架更名为：TX-LCN分布式事务框架。</p>
-<h5 id="4-2-TX-LCN由两大模块组成，"><a href="#4-2-TX-LCN由两大模块组成，" class="headerlink" title="4.2.TX-LCN由两大模块组成，"></a>4.2.TX-LCN由两大模块组成，</h5><h5 id="TxClient、TxManager"><a href="#TxClient、TxManager" class="headerlink" title="TxClient、TxManager"></a>TxClient、TxManager</h5></li>
+<li><p><strong>服务及其元数据管理</strong></p>
+<p>Nacos 能让您从微服务平台建设的视角管理数据中心的所有服务及元数据，包括管理服务的描述、生命周期、服务的静态依赖分析、服务的健康状态、服务的流量管理、路由及安全策略、服务的 SLA 以及最首要的 metrics 统计数据。</p>
+</li>
 </ul>
-<p>TxClient作为模块的依赖框架，提供了TX-LCN的标准支持，事务发起方和参与方都属于TxClient。</p>
-<p>TxManager作为分布式事务的控制方，控制整个事务。</p>
-<p>核心步骤<br>创建事务组<br>是指在事务发起方开始执行业务代码之前先调用TxManager创建事务组对象，然后拿到事务标示GroupId的过程。<br>添加事务组<br>添加事务组是指参与方在执行完业务方法以后，将该模块的事务信息添加通知给TxManager的操作。<br>关闭事务组<br>是指在发起方执行完业务代码以后，将发起方执行结果状态通知给TxManager的动作。当执行完关闭事务组的方法以后，TxManager将根据事务组信息来通知相应的参与模块提交或回滚事务。</p>
+<h2 id="3、基本架构"><a href="#3、基本架构" class="headerlink" title="3、基本架构"></a>3、基本架构</h2><h4 id="服务（service）"><a href="#服务（service）" class="headerlink" title="服务（service）:"></a>服务（service）:</h4><p>服务是指一个或一组软件功能（例如特定信息的检索或一组操作的执行），其目的是不同的客户端可以为不同的目的重用（例如通过跨进程的网络调用）。Nacos 支持主流的服务生态，如 Kubernetes Service、gRPC|Dubbo RPC Service 或者 Spring Cloud RESTful Service。</p>
+<h4 id="服务注册中心-Service-Registry"><a href="#服务注册中心-Service-Registry" class="headerlink" title="服务注册中心 (Service Registry) :"></a>服务注册中心 (Service Registry) :</h4><p>服务注册中心，它是服务，其实例及元数据的数据库。服务实例在启动时注册到服务注册表，并在关闭时注销。服务和路由器的客户端查询服务注册表以查找服务的可用实例。服务注册中心可能会调用服务实例的健康检查 API 来验证它是否能够处理请求。</p>
+<h4 id="服务元数据-Service-Metadata"><a href="#服务元数据-Service-Metadata" class="headerlink" title="服务元数据 (Service Metadata) :"></a>服务元数据 (Service Metadata) :</h4><p>服务元数据是指包括服务端点(endpoints)、服务标签、服务版本号、服务实例权重、路由规则、安全策略等描述服务的数据。</p>
+<h4 id="服务提供方-Service-Provider"><a href="#服务提供方-Service-Provider" class="headerlink" title="服务提供方 (Service Provider) :"></a>服务提供方 (Service Provider) :</h4><p>是指提供可复用和可调用服务的应用方。</p>
+<h4 id="服务消费方-Service-Consumer"><a href="#服务消费方-Service-Consumer" class="headerlink" title="服务消费方 (Service Consumer) :"></a>服务消费方 (Service Consumer) :</h4><p>是指会发起对某个服务调用的应用方。</p>
+<h4 id="配置-Configuration"><a href="#配置-Configuration" class="headerlink" title="配置 (Configuration) :"></a>配置 (Configuration) :</h4><p>在系统开发过程中通常会将一些需要变更的参数、变量等从代码中分离出来独立管理，以独立的配置文件的形式存在。目的是让静态的系统工件或者交付物（如 WAR，JAR 包等）更好地和实际的物理运行环境进行适配。配置管理一般包含在系统部署的过程中，由系统管理员或者运维人员完成这个步骤。配置变更是调整系统运行时的行为的有效手段之一。</p>
+<h4 id="配置管理-Configuration-Management"><a href="#配置管理-Configuration-Management" class="headerlink" title="配置管理 (Configuration Management) :"></a>配置管理 (Configuration Management) :</h4><p>在数据中心中，系统中所有配置的编辑、存储、分发、变更管理、历史版本管理、变更审计等所有与配置相关的活动统称为配置管理。</p>
+<h4 id="名字服务-Naming-Service"><a href="#名字服务-Naming-Service" class="headerlink" title="名字服务 (Naming Service) :"></a>名字服务 (Naming Service) :</h4><p>提供分布式系统中所有对象(Object)、实体(Entity)的“名字”到关联的元数据之间的映射管理服务，例如 ServiceName -&gt; Endpoints Info, Distributed Lock Name -&gt; Lock Owner/Status Info, DNS Domain Name -&gt; IP List, 服务发现和 DNS 就是名字服务的2大场景。</p>
+<h4 id="配置服务-Configuration-Service"><a href="#配置服务-Configuration-Service" class="headerlink" title="配置服务 (Configuration Service) :"></a>配置服务 (Configuration Service) :</h4><p>在服务或者应用运行过程中，提供动态配置或者元数据以及配置管理的服务提供者。</p>
 
                 
             </div>
@@ -547,7 +547,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/16/TX-LCN%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%96%B9%E6%A1%88/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/16/TX-LCN%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%96%B9%E6%A1%88/</a>
+                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/27/Nacos/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/27/Nacos/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -756,13 +756,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yunpumian/2021/08/18/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+                <a href="/yunpumian/2021/08/27/SaToken-%E6%A1%86%E6%9E%B6/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/23.jpg" class="responsive-img" alt="Nginx反向代理">
+                        <img src="/yunpumian/medias/featureimages/21.jpg" class="responsive-img" alt="SaToken 框架">
                         
-                        <span class="card-title">Nginx反向代理</span>
+                        <span class="card-title">SaToken 框架</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -773,7 +773,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
                         </span>
                         <span class="publish-author">
                             
@@ -793,13 +793,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunpumian/2021/06/20/Java8%E8%A7%A3%E5%86%B3%E7%A9%BA%E6%8C%87%E9%92%88/">
+                <a href="/yunpumian/2021/08/27/IO%E6%B5%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/19.jpg" class="responsive-img" alt="Java8解决空指针">
+                        <img src="/yunpumian/medias/featureimages/1.jpg" class="responsive-img" alt="JavaI/O">
                         
-                        <span class="card-title">Java8解决空指针</span>
+                        <span class="card-title">JavaI/O</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -810,7 +810,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
                             </span>
                         <span class="publish-author">
                             

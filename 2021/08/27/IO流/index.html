@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="TX-LCN分布式事务使用方案, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
+    <meta name="keywords" content="JavaI/O, HTML,CSS,JavaScript,JQuery,React,Vue.js等">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>TX-LCN分布式事务使用方案 | 云扑面</title>
+    <title>JavaI/O | 云扑面</title>
     <link rel="icon" type="image/png" href="/yunpumian/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/yunpumian/libs/awesome/css/all.css">
@@ -323,12 +323,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/yunpumian/medias/featureimages/1.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">TX-LCN分布式事务使用方案</h1>
+                    <h1 class="description center-align post-title">JavaI/O</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-08-16
+                    2021-08-27
                 </div>
                 
 
@@ -465,14 +465,14 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1k
+                    535
                 </div>
                 
 
                 
                 <div class="info-break-policy">
                     <i class="far fa-clock fa-fw"></i>阅读时长:&nbsp;&nbsp;
-                    3 分
+                    1 分
                 </div>
                 
 
@@ -492,35 +492,41 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="1-分布式事务是什么？"><a href="#1-分布式事务是什么？" class="headerlink" title="1. 分布式事务是什么？"></a><strong>1. 分布式事务是什么？</strong></h4><p>在分布式系统中，事务参与者在不同的分布式节点上或事务操作的数据源不是同一个，这些情况产生的事务都叫做分布式事务。</p>
-<p>例如：</p>
-<p>项目A实现user表新增、项目B实现role新增，现在需要实现用户权限新增，需要把项目A和项目B两个项目新增的方法组成一个事务，这个事务就是分布式事务。</p>
-<p>项目中向MySQL做新增，同时还需要向Redis或MongoDB执行新增，希望执行MySQL或Redis或MongoDB时如果出现异常进行事务回滚，这种情况也成为分布式事务。</p>
-<h4 id="2-什么是事务"><a href="#2-什么是事务" class="headerlink" title="2.什么是事务"></a>2.什么是事务</h4><p>一个事务（本地事务）就是一系列SQL语句的集合，只要在执行过程中一条SQL出错就会导致整个事务失败，回滚到原点。而在分布式系统中存在多模块完成一次业务。那么就存在一个业务由多模块操作同一个数据源。</p>
-<h4 id="3-分布式事务常见解决方案"><a href="#3-分布式事务常见解决方案" class="headerlink" title="3. 分布式事务常见解决方案"></a><strong>3. 分布式事务常见解决方案</strong></h4><p><strong>3.1 基于XA协议的两阶段提交</strong></p>
-<p>分布式事务通常采用2PC协议，全称Two Phase Commitment Protocol。该协议主要为了解决在分布式数据库场景下，所有节点间数据一致性的问题。分布式事务通过2PC协议将提交分成两个阶段：</p>
-<ol>
-<li>prepare</li>
-<li>commit/rollback</li>
-</ol>
-<p>阶段一为准备（prepare）阶段。即所有的参与者准备执行事务并锁住需要的资源。参与者ready时，向transaction manager报告已准备就绪。</p>
-<p>阶段二为提交阶段（commit）。当transaction manager确认所有参与者都ready后，向所有参与者发送commit命令。</p>
-<p><strong>3.2 消息事务+最终一致性</strong></p>
-<p>所谓的消息事务就是基于消息中间件的两阶段提交，本质上是对消息中间件的一种特殊利用，它是将本地事务和发消息放在了一个分布式事务里，保证要么本地操作成功并且对外发消息成功，要么两者都失败</p>
-<p>分布式事务，本质上是对多个数据库的事务进行统一控制，按照控制力度可以分为：不控制、部分控制和完全控制。不控制就是不引入分布式事务，部分控制就是各 种变种的两阶段提交，包括上面提到的消息事务+最终一致性、TCC模式，而完全控制就是完全实现两阶段提交。部分控制的好处是并发量和性能很好，缺点是数 据一致性减弱了，完全控制则是牺牲了性能，保障了一致性，具体用哪种方式，最终还是取决于业务场景。</p>
-<h4 id="4-TX-LCN概述"><a href="#4-TX-LCN概述" class="headerlink" title="4.TX-LCN概述"></a>4.<strong>TX-LCN概述</strong></h4><h5 id="4-1-简介"><a href="#4-1-简介" class="headerlink" title="4.1. 简介**"></a>4.1. 简介**</h5><ul>
-<li><p>1）锁定事务单元（Lock）</p>
+                <h2 id="1、输入和输出-–-数据源和目标媒介"><a href="#1、输入和输出-–-数据源和目标媒介" class="headerlink" title="1、输入和输出 – 数据源和目标媒介"></a>1、输入和输出 – 数据源和目标媒介</h2><p>Java的IO包主要关注的是从原始数据源的读取以及输出原始数据到目标媒介。以下是最典型的数据源和目标媒介：</p>
+<ul>
+<li><p>文件</p>
 </li>
-<li><p>2）确认事务模块状态（Confirm）</p>
+<li><p>管道</p>
 </li>
-<li><p>3）通知事务（Notify）</p>
+<li><p>网络连接</p>
 </li>
-<li><p>LCN框架从5.0开始兼容了LCN、TCC、TXC三种事务模式，为了和LCN框架区分，从5.0开始把LCN框架更名为：TX-LCN分布式事务框架。</p>
-<h5 id="4-2-TX-LCN由两大模块组成，"><a href="#4-2-TX-LCN由两大模块组成，" class="headerlink" title="4.2.TX-LCN由两大模块组成，"></a>4.2.TX-LCN由两大模块组成，</h5><h5 id="TxClient、TxManager"><a href="#TxClient、TxManager" class="headerlink" title="TxClient、TxManager"></a>TxClient、TxManager</h5></li>
+<li><p>内存缓存</p>
+</li>
+<li><p>System.in, System.out, System.error(注：Java标准输入、输出、错误输出)</p>
+<p>流程：source—&gt;program—&gt;Destination</p>
+</li>
 </ul>
-<p>TxClient作为模块的依赖框架，提供了TX-LCN的标准支持，事务发起方和参与方都属于TxClient。</p>
-<p>TxManager作为分布式事务的控制方，控制整个事务。</p>
-<p>核心步骤<br>创建事务组<br>是指在事务发起方开始执行业务代码之前先调用TxManager创建事务组对象，然后拿到事务标示GroupId的过程。<br>添加事务组<br>添加事务组是指参与方在执行完业务方法以后，将该模块的事务信息添加通知给TxManager的操作。<br>关闭事务组<br>是指在发起方执行完业务代码以后，将发起方执行结果状态通知给TxManager的动作。当执行完关闭事务组的方法以后，TxManager将根据事务组信息来通知相应的参与模块提交或回滚事务。</p>
+<h2 id="2、流"><a href="#2、流" class="headerlink" title="2、流"></a>2、流</h2><p>在Java IO中，流是一个核心的概念。流从概念上来说是一个连续的数据流。你既可以从流中读取数据，也可以往流中写数据。流与数据源或者数据流向的媒介相关联。在Java IO中流既可以是字节流(以字节为单位进行读写)，也可以是字符流(以字符为单位进行读写)。</p>
+<h2 id="3、类InputStream-OutputStream-Reader-和Writer"><a href="#3、类InputStream-OutputStream-Reader-和Writer" class="headerlink" title="3、类InputStream, OutputStream, Reader 和Writer"></a>3、类InputStream, OutputStream, Reader 和Writer</h2><p>一个程序需要InputStream或者Reader从数据源读取数据，需要OutputStream或者Writer将数据写入到目标媒介中：</p>
+<p>source—–&gt;InputStream/Reader—-&gt;Program</p>
+<p>Program—-&gt;OutputStream/Writer—-&gt;Destination;</p>
+<p>InputStream和Reader与数据源相关联，OutputStream和writer与目标媒介相关联</p>
+<h2 id="4、Java-IO的用途和特征"><a href="#4、Java-IO的用途和特征" class="headerlink" title="4、Java IO的用途和特征"></a>4、Java IO的用途和特征</h2><p>Java IO中包含了许多InputStream、OutputStream、Reader、Writer的子类。这样设计的原因是让每一个类都负责不同的功能。这也就是为什么IO包中有这么多不同的类的缘故。各用途汇总如下：</p>
+<ul>
+<li>文件访问</li>
+<li>网络访问</li>
+<li>内存缓存访问</li>
+<li>线程内部通信(管道)</li>
+<li>缓冲</li>
+<li>过滤</li>
+<li>解析</li>
+<li>读写文本 (Readers / Writers)</li>
+<li>读写基本类型数据 (long, int etc.)</li>
+<li>读写对象</li>
+</ul>
+<p>当通读过Java IO类的源代码之后，我们很容易就能了解这些用途。这些用途或多或少让我们更加容易地理解，不同的类用于针对不同业务场景。</p>
+<h2 id="5、Java-IO类概述表"><a href="#5、Java-IO类概述表" class="headerlink" title="5、Java IO类概述表"></a>5、Java IO类概述表</h2><p>已经讨论了数据源、目标媒介、输入、输出和各类不同用途的Java IO类，接下来是一张通过输入、输出、基于字节或者字符、以及其他比如缓冲、解析之类的特定用途划分的大部分Java IO类的表格。</p>
+<p><img src="C:\Users\intasect\Desktop\IO流.png" alt="IO流"></p>
 
                 
             </div>
@@ -547,7 +553,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/16/TX-LCN%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%96%B9%E6%A1%88/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/16/TX-LCN%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E4%BD%BF%E7%94%A8%E6%96%B9%E6%A1%88/</a>
+                    <a href="https://yunpumian.github.io/yunpumian/yunpumian/2021/08/27/IO%E6%B5%81/">https://yunpumian.github.io/yunpumian/yunpumian/2021/08/27/IO%E6%B5%81/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -756,13 +762,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/yunpumian/2021/08/18/Nginx%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86/">
+                <a href="/yunpumian/2021/08/27/Nacos/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/23.jpg" class="responsive-img" alt="Nginx反向代理">
+                        <img src="/yunpumian/medias/featureimages/20.jpg" class="responsive-img" alt="Nacos">
                         
-                        <span class="card-title">Nginx反向代理</span>
+                        <span class="card-title">Nacos</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -773,7 +779,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-18
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
                         </span>
                         <span class="publish-author">
                             
@@ -793,13 +799,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/yunpumian/2021/06/20/Java8%E8%A7%A3%E5%86%B3%E7%A9%BA%E6%8C%87%E9%92%88/">
+                <a href="/yunpumian/2021/08/27/Mybatis/">
                     <div class="card-image">
                         
                         
-                        <img src="/yunpumian/medias/featureimages/19.jpg" class="responsive-img" alt="Java8解决空指针">
+                        <img src="/yunpumian/medias/featureimages/5.jpg" class="responsive-img" alt="Mybatis">
                         
-                        <span class="card-title">Java8解决空指针</span>
+                        <span class="card-title">Mybatis</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -810,7 +816,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-06-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-08-27
                             </span>
                         <span class="publish-author">
                             
